@@ -385,7 +385,8 @@ def EfficientNet(width_coefficient,
             img_input = input_tensor
 
     bn_axis = 3 if backend.image_data_format() == 'channels_last' else 1
-    activation = get_swish(**kwargs)
+    #activation = get_swish(**kwargs)
+    activation = backend.tf.nn.relu
 
     # Build stem
     x = img_input
