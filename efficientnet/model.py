@@ -210,7 +210,7 @@ def mb_conv_block(inputs, block_args, activation, drop_rate=None, prefix='', ):
     #    models=models,
     #    utils=keras_utils
     #)
-    Droput = layers.Dropout
+    Dropout = layers.Dropout
 
     # Expansion phase
     filters = block_args.input_filters * block_args.expand_ratio
