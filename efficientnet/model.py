@@ -204,13 +204,13 @@ def mb_conv_block(inputs, block_args, activation, drop_rate=None, prefix='', ):
     bn_axis = 3 if backend.image_data_format() == 'channels_last' else 1
 
     # workaround over non working dropout with None in noise_shape in tf.keras
-    #Dropout = get_dropout(
-    #    backend=backend,
-    #    layers=layers,
-    #    models=models,
-    #    utils=keras_utils
-    #)
-    Dropout = layers.Dropout
+    Dropout = get_dropout(
+        backend=backend,
+        layers=layers,
+        models=models,
+        utils=keras_utils
+    )
+    #Dropout = layers.Dropout
 
     # Expansion phase
     filters = block_args.input_filters * block_args.expand_ratio
