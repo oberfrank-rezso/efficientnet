@@ -386,7 +386,11 @@ def EfficientNet(width_coefficient,
 
     bn_axis = 3 if backend.image_data_format() == 'channels_last' else 1
     #activation = get_swish(**kwargs)
-    activation = backend.tf.nn.relu
+    try:
+        activation = backend.tf.nn.relu
+    except AttributeError:
+        import tensorflow.nn.relu as activation
+        print('Imported activation from tf.nn')
 
     # Build stem
     x = img_input
