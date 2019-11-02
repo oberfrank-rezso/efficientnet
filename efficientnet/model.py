@@ -389,7 +389,8 @@ def EfficientNet(width_coefficient,
     try:
         activation = backend.tf.nn.relu
     except AttributeError:
-        import tensorflow.nn.relu as activation
+        import tensorflow as tf
+        activation = tf.nn.relu
         print('Imported activation from tf.nn')
 
     # Build stem
